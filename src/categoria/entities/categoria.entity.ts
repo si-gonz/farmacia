@@ -12,6 +12,6 @@ export class Categoria {
     @Column({length: 100, nullable: false})
     tipo: string
 
-    //@OneToMany(() => Produto, (produto) => produto.categoria)
-    //produto: Produto[]
+    @OneToMany(() => Produto, (produto) => produto.categoria)
+    produto: Produto[]
 }

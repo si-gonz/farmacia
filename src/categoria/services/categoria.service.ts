@@ -20,6 +20,7 @@ export class CategoriaService {
                 where: {
                     id
                 }
+
             });
     
             if (!categoria)

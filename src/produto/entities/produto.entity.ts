@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
 import { IsNotEmpty, IsPositive } from "class-validator"
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 import { Categoria } from "../../categoria/entities/categoria.entity"
+import { Carrinho } from "../../carrinho/entities/carrinho.entity"; 
 
 @Entity({name: "tb_produtos"})
 export class Produto {
@@ -25,6 +26,9 @@ export class Produto {
         onDelete: "CASCADE"
     })
     categoria: Categoria;
+
+    @ManyToOne(() => Carrinho, (carrinho) => carrinho.produtos)
+    carrinho: Carrinho;
     
 }
 
